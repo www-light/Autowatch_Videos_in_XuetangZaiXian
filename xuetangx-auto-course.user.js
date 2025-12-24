@@ -20,41 +20,11 @@
         playbackRate: 1.5,        // 播放速度（1.0为正常速度）
         autoNext: true,           // 自动切换到下一节
         checkInterval: 3000,      // 检查间隔（毫秒）
-        skipQuiz: false,          // 跳过测验（需谨慎使用）
     };
 
     // 日志输出
     function log(message) {
         console.log(`[学堂在线自动刷课] ${message}`);
-    }
-
-    // 等待元素出现
-    function waitForElement(selector, timeout = 10000) {
-        return new Promise((resolve, reject) => {
-            const element = document.querySelector(selector);
-            if (element) {
-                resolve(element);
-                return;
-            }
-
-            const observer = new MutationObserver((mutations, obs) => {
-                const element = document.querySelector(selector);
-                if (element) {
-                    obs.disconnect();
-                    resolve(element);
-                }
-            });
-
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
-            });
-
-            setTimeout(() => {
-                observer.disconnect();
-                reject(new Error(`Element ${selector} not found within ${timeout}ms`));
-            }, timeout);
-        });
     }
 
     // 查找视频播放器
@@ -121,8 +91,6 @@
         const nextButtonSelectors = [
             '.next-btn',
             '.next-button',
-            'button:contains("下一节")',
-            'a:contains("下一节")',
             '.xt-next',
             '[title*="下一"]',
             'button[class*="next"]',

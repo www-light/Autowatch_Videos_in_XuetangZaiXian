@@ -45,7 +45,6 @@ const config = {
     playbackRate: 1.5,        // 播放速度（1.0为正常速度）
     autoNext: true,           // 自动切换到下一节
     checkInterval: 3000,      // 检查间隔（毫秒）
-    skipQuiz: false,          // 跳过测验（需谨慎使用）
 };
 ```
 
@@ -55,7 +54,6 @@ const config = {
 - `playbackRate`: 视频播放速度倍率（建议1.0-2.0之间）
 - `autoNext`: 视频结束后是否自动切换到下一节（true/false）
 - `checkInterval`: 脚本检查页面状态的时间间隔，单位毫秒
-- `skipQuiz`: 是否尝试跳过测验（实验性功能）
 
 ## 注意事项
 
